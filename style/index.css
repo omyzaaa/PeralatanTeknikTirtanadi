@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling untuk logo */
+.logo {
+    height: 50px; /* Sesuaikan dengan tinggi logo */
+    margin-right: 10px;
+}
+
+/* Styling untuk teks divisi */
+.division-text {
+    margin: 0;
+}
+
+/* Styling untuk menu navigasi */
+.menu {
+    background-color: #007dfb;
+    color: #fff;
+    padding: 10px;
+    text-align: center; /* Untuk mengatur posisi teks menjadi rata tengah */
+}
+
+.menu nav {
+    display: flex;
+    justify-content: center; /* Untuk mengatur item-menu agar berada di tengah secara horizontal */
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+}
+
