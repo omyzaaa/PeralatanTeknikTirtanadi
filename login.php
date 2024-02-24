@@ -130,6 +130,7 @@ if (isset($_POST['regis'])) {
         </div>
 
 
+        <!-- dsdsd -->
 </body>
 </html>
 
