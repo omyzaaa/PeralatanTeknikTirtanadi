@@ -40,7 +40,7 @@ $nama_pengguna = $_SESSION['nama'];
                 <a class="nav-link" href="#"><?php echo $nama_pengguna; ?></a>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>

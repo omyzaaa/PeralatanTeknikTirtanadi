@@ -1,3 +1,4 @@
+
 <?php
 include('function/connect.php');
 
@@ -76,79 +77,60 @@ if (isset($_POST['regis'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/login.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
-<body>
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="" method="POST">
-                <h1>Daftar Akun</h1>
-                <input type="text" placeholder="NIP" name="nip" required />
-                <input type="text" placeholder="Username" name="nama" required />
-                <input type="password" placeholder="Password" name="password" required />
-                <input type="text" placeholder="Cabang" name="cabang" required />
-                <button type="submit" name="regis">Sign Up</button>
-            </form>
-        </div>
 
-        <div class="form-container sign-in-container">
-            <form action="" method="POST">
-                <h1>Sign in</h1> 
-                <?php
-                    if(isset($_GET['error'])){
+<body>
+    <div class="wrapper">
+        <div class="filter">
+        <div class="box-login">
+                <div class="login-title">
+                    <h1 style=" color: #4f4f4f; ">Divisi PLT</h1>
+                    <h3>Login</h3>
+                    <p style="color: #ef8521">Peralatan Teknik Tirtanadi</p>
+                </div>
+                <form method="post" class="input-login">
+                <label for="username">NIP</label>
+                    <input type="text" name="nip" id="nip" required class="input-field" placeholder="masukkan NIP">
+                    <label for="password">Password</label>
+                    <input type ="password" name="password" id="password" required class="input-field" placeholder="password">
+                    <input type="checkbox" onclick="myFunction()" title="Show password here">
+                    <i class="fa-solid fa-eye"></i>
+                    <script>
+                        function myFunction(){
+                            var x = document.getElementById("password");
+                            if(x.type === "password"){
+                                x.type = "text";
+                            }
+                            else{
+                                x.type = "password";
+                            }
+                        }
+                    </script>
+                    <?php
+                            if(isset($_GET['error'])){
                         echo "<p style='color:red; font-size:.8em; margin-top:.5rem'>* Username atau password salah!</p>";
                     }
-                ?>
-                <input type="text" placeholder="NIP" name="nip" />
-                <input type="password" placeholder="Password" name="password" />  
-                <button type="submit" name="login">Sign In</button>
-                <a href="index.php"><button type="button">Home</button></a>
-            </form>
-        </div>
-
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
-                </div>
+                    ?>
+                    <div class="btn-click">
+                        <button type="submit"  class="btn subt" name="login"><i class="fa-solid fa-right-to-bracket"></i>    Login</button>
+                        <a href="regist.php" class="btn back"><i class="fa-solid fa-address-card"></i>   Regist</a>
+                        <a href="index.php" class="btn back"><i class="fa-solid fa-home"></i>   Home</a>
+                    </div>          
+                </form>
             </div>
         </div>
-    </div>
-    
-    <script>
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
+        </div>
 
-        signUpButton.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
 
-        signInButton.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
-    </script>
-    
-    <footer>
-        <p>
-            <a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-            - Read how I created this and how you can join the challenge
-            <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-        </p>
-    </footer>
+        <!-- dsdsd -->
 </body>
 </html>
+

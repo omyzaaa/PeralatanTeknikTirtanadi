@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.wrapper{
+	width: 100%;
+	height: 100vh;
+	background-color: #eee;
+	background-image: url(img/bg-login.jpg);
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.filter{
+	justify-content: center;
+	display: flex;
+	height: 100%;
+	background-color: rgba(45, 45, 45, 0.5);
+}
+/*LOGIN*/
+.box-login{
+	margin-top: 2%;
+	width: 35%;
+	height: auto;
+	background-color: #fff;
+	align-self: center;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	padding: 3% 40px 5% 40px;
+	border: 5px solid #ef8521;
+	box-sizing: border-box;
+	gap: 10px;
+
+}
+
+
+.box-login .login-title h3 {
+	color: #ef8521;
+}
+
+
+.box-login .login-title{
+	margin-bottom: 5%;
+}
+
+.input-login .input-field{
+	width: 90%;
+	padding: 6px 12px;
+	border: 1px solid #333;
+	border-radius: 8px;
+
+}
+
+/*Button*/
+.btn-click {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.btn-click .btn {
+    width: 31%;
+    border: none;
+    padding: 7px 15px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: .9em;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn-click .btn.subt {
+    background-color: #ef8521;
+}
+
+.btn-click .btn.subt:hover {
+    background-color: #222;
+    border: 1px solid #ef8521;
+}
+
+.btn-click .btn.back {
+    text-decoration: none;
+    padding: 7px 10px;
+    font-size: .8em;
+    background-color: inherit;
+    color: #222;
+    border: 1px solid #ef8521;
+    width: 24%;
+    text-align: center;
+}
+
+.btn-click .btn.back:hover {
+    background-color: #ef8521;
+    color: #eee;
+}

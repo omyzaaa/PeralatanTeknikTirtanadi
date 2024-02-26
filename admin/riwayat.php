@@ -19,6 +19,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +45,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th width="10%">Nama barang</th>
                                             <th width="15%">Tanggal surat masuk</th>
                                             <th width="10%">Unit Kerja</th>
                                             <th width="10%">Jenis</th>
@@ -60,6 +62,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                                         $requests = mysqli_query($connection, "SELECT * FROM riwayat_perbaikan");
                                         while ($row = mysqli_fetch_array($requests)) {
                                             $id_riwayat         = $row['id_riwayat'];
+                                            $nama_barang        = $row['nama_barang'];
                                             $tanggal_surat      = $row['tanggal_surat'];
                                             $cabang             = $row['cabang'];
                                             $jenis              = $row['jenis'];
@@ -71,6 +74,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
                                             ?>
                                             <tr>
+                                                <td><?php echo $nama_barang; ?></td>
                                                 <td align="center"><?php echo $tanggal_surat; ?></td>
                                                 <td><?php echo $cabang; ?></td>
                                                 <td><?php echo $jenis; ?></td>
@@ -79,19 +83,24 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                                                 <td><?php echo $waktu_penyelesaian; ?></td>
                                                 <td><?php echo $lokasi_dokumen; ?></td>
                                                 <td><?php echo $keterangan; ?></td>
+                                                
                                                 <td align="center">
-                                                    <button class="btn btn-warning w-100 mb-2" data-toggle="modal"
-                                                        data-target="#editData<?php echo $id_riwayat; ?>">edit
+                                                <div class="dropdown">
+                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton<?php echo $id_riwayat; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        
                                                     </button>
-                                                    <button class="btn btn-info w-100 mb-2" data-toggle="modal"
-                                                        data-target="#detailData<?php echo $id_riwayat; ?>">detail
-                                                    </button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton<?php echo $id_riwayat; ?>">
+                                                        <button class="dropdown-item" data-toggle="modal" data-target="#editData<?php echo $id_riwayat; ?>">Edit</button>
+                                                        <button class="dropdown-item" data-toggle="modal" data-target="#detailData<?php echo $id_riwayat; ?>">Detail</button>
+                                                        <a class="dropdown-item" href="riwayat.php?action=delete&id=<?php echo $id_riwayat; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</a>
+                                                        <a class="dropdown-item" href="cetak_ulang.php?id=<?php echo $id_riwayat; ?>">Cetak Ulang</a>
+                                                        <a class="dropdown-item" href="realisasi.php?id=<?php echo $id_riwayat; ?>">Realisasi</a>
+                                                        <a class="dropdown-item" href="tanda_terima.php?id=<?php echo $id_riwayat; ?>">Tanda Terima</a>
+                                                    </div>
+                                                </div>
+                                            </td>
 
-                                                    <a href="riwayat.php?action=delete&id=<?php echo $id_riwayat; ?>"
-                                                        class="btn btn-danger w-100"
-                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                            class="bi-solid bi-trash"></i></a>
-                                                </td>
+
                                             </tr>
                                         <?php
                                         }
@@ -139,6 +148,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         <?php
         $requests = mysqli_query($connection, "SELECT * FROM riwayat_perbaikan");
         while ($row = mysqli_fetch_array($requests)) {
+            $id_riwayat = $row['id_riwayat'];
             $nama_barang        = $row['nama_barang'];
             $tanggal_surat      = $row['tanggal_surat'];
             $sn                 = $row['sn'];
@@ -154,6 +164,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
             $rekomendasi        = $row['rekomendasi'];
             $pemeriksaan        = $row['pemeriksaan'];
             ?>
+
             <div class="modal fade" id="detailData<?php echo $id_riwayat; ?>" tabindex="-1" role="dialog" aria-labelledby="detailDataTitle<?php echo $id_riwayat; ?>" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">

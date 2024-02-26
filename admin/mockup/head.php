@@ -5,8 +5,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin
-    </title>
+    <title>Admin PKAK</title>
+    <link rel="icon" href="image/icon.jpg">
 
     
     <!-- Custom fonts for this template-->

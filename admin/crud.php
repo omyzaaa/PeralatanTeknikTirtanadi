@@ -22,6 +22,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         }
     }
 }
+
 // tambah barang
 if (isset($_POST['btnTambahBarang'])) {
     $nama_barang    = mysqli_real_escape_string($connection, $_POST['nama_barang']);
@@ -47,7 +48,6 @@ if (isset($_POST['btnTambahBarang'])) {
         exit();
     }
 }
-
 
 // Edit data
 if (isset($_POST['btnEdit'])) {
@@ -89,7 +89,6 @@ if (isset($_POST['btnSimpan'])) {
     $kerusakan_values = isset($_POST['kerusakan']) ? $_POST['kerusakan'] : array();
     $rekomendasi_values = isset($_POST['rekomendasi']) ? $_POST['rekomendasi'] : array();
 
-
     // Query untuk menyimpan pemeriksaan ke database
     $pemeriksaan = implode(", ", $pemeriksaan_values);
     $updatePemeriksaanSql = "UPDATE proses_perbaikan SET pemeriksaan='$pemeriksaan' WHERE id_proses=$id_proses";
@@ -106,8 +105,6 @@ if (isset($_POST['btnSimpan'])) {
 
 
 }
-
-
 
 // Fungsi untuk memindahkan data ke tabel riwayat_perbaikan
 if (isset($_GET['action']) && $_GET['action'] == 'selesai' && isset($_GET['id_proses'])) {
